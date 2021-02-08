@@ -1,10 +1,7 @@
 {
   "name": "@secjs/env",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "scripts": {
     "mrm": "mrm --preset=@adonisjs/mrm-preset",
     "pretest": "yarn lint",
@@ -22,9 +19,5 @@
   },
   "main": "build/",
   "types": "build/",
-  "files": [
-    "build",
-    "build/index.d.ts",
-    "build/index.js"
-  ]
+  "files": ["build", "LICENSE", "package.json", "README.md"]
 }
