@@ -1,7 +1,7 @@
 import { debug, Debugger as IDebug } from 'debug'
 
 class Debug {
-  private debug: IDebug = debug('api:enviroment')
+  private debug: IDebug = debug('api:environment')
 
   log(message: any) {
     this.debug(message)
