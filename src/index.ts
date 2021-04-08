@@ -5,7 +5,7 @@ interface IEnv {
   type: string
 }
 
-export default function Env(env: string | IEnv, defaultValue?: any): boolean | number | string {
+export default function Env(env: string | IEnv, defaultValue?: any): any {
   if (typeof env === 'string') {
     const environment = process.env[`${env}`]
 
