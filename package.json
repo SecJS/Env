@@ -1,6 +1,6 @@
 {
   "name": "@secjs/env",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "license": "MIT",
   "author": "João Lenon",
   "repository": "https://github.com/SecJS/Env.git",
@@ -117,7 +117,12 @@
     }
   },
   "files": [
-    "build",
+    "index.ts",
+    "index.js",
+    "index.d.ts",
+    "debug.ts",
+    "debug.js",
+    "debug.d.ts",
     "LICENSE",
     "package.json",
     "README.md"

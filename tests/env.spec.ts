@@ -1,4 +1,4 @@
-import Env from '../src'
+import Env from '../index'
 
 describe('\n Env 🔁', () => {
   let DB_USERNAME = ''
