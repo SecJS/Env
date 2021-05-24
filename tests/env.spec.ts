@@ -15,8 +15,8 @@ describe('\n Env 🔁', () => {
   })
 
   it('should get an environment variable from name', () => {
-    expect(Env('DB_USERNAME')).toBe(DB_USERNAME)
-    expect(Env('DB_PASSWORD')).toBe(DB_PASSWORD)
+    expect(Env('DB_USERNAME', '')).toBe(DB_USERNAME)
+    expect(Env('DB_PASSWORD', '')).toBe(DB_PASSWORD)
   })
 
   it('should get an environment variable from default value', () => {
@@ -31,8 +31,8 @@ describe('\n Env 🔁', () => {
   })
 
   it('should get an environment variable type using a object with env name and type to Env function', () => {
-    const PORT = Env({ name: 'PORT', type: 'number' })
-    const DB_DEBUG = Env({ name: 'DB_DEBUG', type: 'boolean' })
+    const PORT = Env({ name: 'PORT', type: 'number' }, '')
+    const DB_DEBUG = Env({ name: 'DB_DEBUG', type: 'boolean' }, '')
 
     expect(PORT).toBe(3333)
     expect(DB_DEBUG).toBe(false)
