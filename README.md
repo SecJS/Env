@@ -35,18 +35,18 @@ DB_DEBUG=false
 DB_DATABASE = 'database'
 
 // The response value will be the value of DB_DATABASE variable or my-database by default
-const db = Env.get('DB_DATABASE', 'my-database')
+const db = Env('DB_DATABASE', 'my-database')
 console.log(db) // 'database'
 
-const dbPort = Env.get('DB_PORT', 5432)
+const dbPort = Env('DB_PORT', 5432)
 console.log(dbPort) // '5432'
 
-const dbDebug = Env.get({ name: 'DB_DEBUG', type: 'boolean' }, false)
+const dbDebug = Env({ name: 'DB_DEBUG', type: 'boolean' }, false)
 console.log(dbDebug) // 'false' // Same as true value
 
-const dbPortCasted = Env.get({ name: 'DB_PORT', type: 'number' }, 5432)
+const dbPortCasted = Env({ name: 'DB_PORT', type: 'number' }, 5432)
 console.log(dbPortCasted) // 5432
 
-const dbDebugCasted = Env.get({ name: 'DB_DEBUG', type: 'boolean' }, false)
+const dbDebugCasted = Env({ name: 'DB_DEBUG', type: 'boolean' }, false)
 console.log(dbDebugCasted) // false
 ```
