@@ -9,6 +9,7 @@ describe('\n Env 🔁', () => {
     process.env.DB_DEBUG = 'false'
     process.env.DB_USERNAME = 'user'
     process.env.DB_PASSWORD = 'pass'
+    process.env.OBJECT = '{"joao":"joao"}'
 
     DB_USERNAME = process.env.DB_USERNAME
     DB_PASSWORD = process.env.DB_PASSWORD
@@ -33,8 +34,10 @@ describe('\n Env 🔁', () => {
   it('should get an environment variable type using a object with env name and type to Env function', () => {
     const PORT = Env({ name: 'PORT', type: 'number' }, '')
     const DB_DEBUG = Env({ name: 'DB_DEBUG', type: 'boolean' }, '')
+    const OBJECT = Env({ name: 'OBJECT', type: 'object' }, '')
 
     expect(PORT).toBe(3333)
     expect(DB_DEBUG).toBe(false)
+    expect(OBJECT.joao).toBe('joao')
   })
 })

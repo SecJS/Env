@@ -13,7 +13,7 @@ interface IEnv {
  * @throws Error if env type is not IEnv or string
  * @return The value of the environment or defaultValue
  */
-export default function Env(env: string | IEnv, defaultValue: string | number | boolean): string | number | boolean {
+export default function Env(env: string | IEnv, defaultValue: string | number | boolean): string | number | boolean | any {
   if (typeof env === 'string') {
     const environment = process.env[`${env}`]
 
@@ -37,6 +37,11 @@ export default function Env(env: string | IEnv, defaultValue: string | number | 
 
     if (env.type === 'number') return parseInt(environment)
     if (env.type === 'boolean') return environment == 'true'
+    if (env.type === 'object') return JSON.parse(environment)
+
+    Debug.log(`Type ${env.type} not found, returning default value`)
+
+    return defaultValue
   }
 
   throw new Error('Env type should be string or object')
