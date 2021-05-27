@@ -548,10 +548,10 @@
   dependencies:
     any-observable "^0.3.0"
 
-"@secjs/logger@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@secjs/logger/-/logger-1.0.3.tgz#fb1c7f2f1767dc27c5561cbd8afe07d12c7fc042"
-  integrity sha512-mfLGP7lIt4brT0a1WrTv57ZhImAkHWtI6Okz0hhh5eG1VcP0KQGS9KMh3kzfxqh01WYA4ePPmqdEqyIZ81geaA==
+"@secjs/logger@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@secjs/logger/-/logger-1.1.1.tgz#53c32022e4bc0b1ab17692a1453ec73293cbe26e"
+  integrity sha512-ItnOm3DSNTES1l66IQcmKVrv7JVhXnb6+xVUWLB0ntJquADKwC7qHU7v0JYeHMcXXKbytCnHliPBBX263XMaVA==
   dependencies:
     chalk "^4.1.1"
     debug "^4.3.1"

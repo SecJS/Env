@@ -17,7 +17,7 @@ export default function Env(env: string | IEnv, defaultValue: string | number | 
   const environment = process.env[`${typeof env === 'string' ? env : env.name}`]
 
   if (!environment) {
-    Debug(`Variable ${env} not found`)
+    Debug(`Variable ${env} not found`, 'api:environment')
 
     return defaultValue
   }
@@ -27,7 +27,7 @@ export default function Env(env: string | IEnv, defaultValue: string | number | 
     if (env.type === 'boolean') return environment == 'true'
     if (env.type === 'object') return JSON.parse(environment)
 
-    Debug.log(`Type ${env.type} not found, returning default value`)
+    Debug(`Type ${env.type} not found, returning default value`, 'api:environment')
 
     return defaultValue
   }

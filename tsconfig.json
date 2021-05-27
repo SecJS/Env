@@ -1,8 +1,8 @@
 {
   "extends": "./node_modules/@adonisjs/mrm-preset/_tsconfig",
   "compilerOptions": {
-    "rootDir": ".",
-    "outDir": ".",
+    "rootDir": "index.ts",
+    "outDir": "build",
     "strict": true,
     "esModuleInterop": true
   },
