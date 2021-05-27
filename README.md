@@ -19,7 +19,7 @@ The intention behind this repository is to always maintain a viable and simple E
 You can install the Env function using;
 
 ```bash
-yarn add @SecJS/Env
+yarn add @secjs/env
 ```
 
 ## Usage

@@ -1,4 +1,4 @@
-import Debug from './debug'
+import { Debug } from '@secjs/logger'
 
 interface IEnv {
   name: string
@@ -14,27 +14,15 @@ interface IEnv {
  * @return The value of the environment or defaultValue
  */
 export default function Env(env: string | IEnv, defaultValue: string | number | boolean): string | number | boolean | any {
-  if (typeof env === 'string') {
-    const environment = process.env[`${env}`]
+  const environment = process.env[`${typeof env === 'string' ? env : env.name}`]
 
-    if (!environment) {
-      Debug.log(`Variable ${env} not found`)
+  if (!environment) {
+    Debug(`Variable ${env} not found`)
 
-      return defaultValue
-    }
-
-    return environment
+    return defaultValue
   }
 
   if (typeof env === 'object') {
-    const environment = process.env[`${env.name}`]
-
-    if (!environment) {
-      Debug.log(`Variable ${env.name} not found`)
-
-      return defaultValue
-    }
-
     if (env.type === 'number') return parseInt(environment)
     if (env.type === 'boolean') return environment == 'true'
     if (env.type === 'object') return JSON.parse(environment)
@@ -44,5 +32,5 @@ export default function Env(env: string | IEnv, defaultValue: string | number | 
     return defaultValue
   }
 
-  throw new Error('Env type should be string or object')
+  return environment
 }
