@@ -548,13 +548,10 @@
   dependencies:
     any-observable "^0.3.0"
 
-"@secjs/logger@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@secjs/logger/-/logger-1.1.1.tgz#53c32022e4bc0b1ab17692a1453ec73293cbe26e"
-  integrity sha512-ItnOm3DSNTES1l66IQcmKVrv7JVhXnb6+xVUWLB0ntJquADKwC7qHU7v0JYeHMcXXKbytCnHliPBBX263XMaVA==
-  dependencies:
-    chalk "^4.1.1"
-    debug "^4.3.1"
+"@secjs/logger@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@secjs/logger/-/logger-1.1.2.tgz#8f0e22434a5abab9f9deefc6a3831b9e81a571a8"
+  integrity sha512-ePiMc262BW7wkpofsrJMXsuJ4ew7muEcRQOgP531qR+0oyzixD/I1mVJIfgf8etXZ1E+jyc/BDDBzPMrnlEJaQ==
 
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
@@ -1256,14 +1253,6 @@ chalk@^4.0.0, chalk@^4.1.0:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
 
-chalk@^4.1.1:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/chalk/-/chalk-4.1.1.tgz#c80b3fab28bf6371e6863325eee67e618b77e6ad"
-  integrity sha512-diHzdDKxcU+bAsUboHLPEDQiw0qEe0qd7SYUn3HgcFlWgbDcfLGswOHYeGrHKzG9z6UYf01d9VFMfZxPM1xZSg==
-  dependencies:
-    ansi-styles "^4.1.0"
-    supports-color "^7.1.0"
-
 char-regex@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/char-regex/-/char-regex-1.0.2.tgz#d744358226217f981ed58f479b1d6bcc29545dcf"
@@ -1557,7 +1546,7 @@ debug@^2.2.0, debug@^2.3.3, debug@^2.6.9:
   dependencies:
     ms "2.0.0"
 
-debug@^4.0.1, debug@^4.1.0, debug@^4.3.1:
+debug@^4.0.1, debug@^4.1.0:
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.1.tgz#f0d229c505e0c6d8c49ac553d1b13dc183f6b2ee"
   integrity sha512-doEwdvm4PCeK4K3RQN2ZC2BYUBaxwLARCqZmMjtF8a51J2Rb0xpVloFRnCODwqjpwnAoao4pelN8l3RJdv3gRQ==

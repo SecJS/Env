@@ -40,7 +40,7 @@
     "ts-jest": "^26.5.4",
     "typescript": "^4.0.3"
   },
-  "peerDependencies": {
+  "dependencies": {
     "@secjs/logger": "^1.1.2"
   },
   "lint-staged": {
