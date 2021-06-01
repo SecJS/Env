@@ -5,7 +5,6 @@ import { Debug } from '@secjs/logger'
 
 class SetEnv {
   constructor() {
-    console.log(__dirname, process.cwd())
     const environment = process.env.NODE_ENV
     const configurations = { path: path.resolve(__dirname, '..', '..', '.env') }
 
