@@ -1,3 +1,4 @@
+import './SetEnv'
 import { Debug } from '@secjs/logger'
 
 interface IEnv {
