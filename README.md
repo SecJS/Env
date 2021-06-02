@@ -38,10 +38,10 @@ DB_DATABASE = 'database'
 const db = Env('DB_DATABASE', 'my-database')
 console.log(db) // 'database'
 
-const dbPort = Env('DB_PORT', 5432)
+const dbPort = Env('DB_PORT', '5432')
 console.log(dbPort) // '5432'
 
-const dbDebug = Env({ name: 'DB_DEBUG', type: 'boolean' }, false)
+const dbDebug = Env('DB_DEBUG', 'false')
 console.log(dbDebug) // 'false' // Same as true value
 
 const dbPortCasted = Env({ name: 'DB_PORT', type: 'number' }, 5432)
