@@ -6,10 +6,10 @@ import { Debug } from '@secjs/logger'
 class SetEnv {
   constructor() {
     const environment = process.env.NODE_ENV
-    const configurations = { path: path.resolve(__dirname, '..', '..', '.env') }
+    const configurations = { path: path.resolve(process.cwd(), '.env') }
 
     if (environment) {
-      configurations.path = path.resolve(__dirname, '..', `.env.${environment}`)
+      configurations.path = path.resolve(process.cwd(), `.env.${environment}`)
 
       Debug(
         `Environment variables set using .env.${environment}`,
