@@ -32,7 +32,7 @@ import Env from '@secjs/env'
 // Simulating .env file
 DB_PORT=5432
 DB_DEBUG=false
-DB_DATABASE = 'database'
+DB_DATABASE='database'
 
 // The response value will be the value of DB_DATABASE variable or my-database by default
 const db = Env('DB_DATABASE', 'my-database')
