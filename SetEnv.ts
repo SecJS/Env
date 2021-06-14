@@ -6,7 +6,7 @@ import { Debug } from '@secjs/logger'
 class SetEnv {
   constructor() {
     const environment = process.env.NODE_ENV
-    const configurations = { path: '' }
+    const configurations = { path: path.resolve(process.cwd(), '.env') }
 
     if (environment) {
       configurations.path = path.resolve(process.cwd(), `.env.${environment}`)
@@ -17,7 +17,6 @@ class SetEnv {
       )
     }
 
-    configurations.path = path.resolve(process.cwd(), '.env')
     const result = dotenv.config(configurations)
 
     if (result.error) {
