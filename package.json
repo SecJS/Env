@@ -1,6 +1,6 @@
 {
   "name": "@secjs/env",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "license": "MIT",
   "author": "João Lenon",
   "repository": "https://github.com/SecJS/Env.git",
@@ -14,35 +14,40 @@
     "function"
   ],
   "scripts": {
-    "mrm": "mrm --preset=@adonisjs/mrm-preset",
     "build": "tsc",
     "test": "jest --verbose",
-    "test:debug": "DEBUG=api:* jest --verbose"
-  },
-  "devDependencies": {
-    "@adonisjs/mrm-preset": "2.0.3",
-    "@types/debug": "^4.1.5",
-    "@types/jest": "^26.0.22",
-    "@types/node": "^14.14.3",
-    "eslint": "^7.1.0",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-config-standard": "^14.1.1",
-    "eslint-plugin-import": "^2.18.0",
-    "eslint-plugin-node": "^9.1.0",
-    "eslint-plugin-prettier": "^3.1.3",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.0",
-    "husky": "^3.0.9",
-    "jest": "^26.6.3",
-    "lint-staged": "^9.4.3",
-    "mrm": "^2.2.1",
-    "prettier": "^2.0.5",
-    "ts-jest": "^26.5.4",
-    "typescript": "^4.0.3"
+    "test:debug": "DEBUG=* jest --verbose",
+    "lint:fix": "eslint \"{repositories,services,tests}/**/*.ts\" --fix"
   },
   "dependencies": {
-    "@secjs/logger": "^1.1.3",
-    "dotenv": "^10.0.0"
+    "dotenv": "10.0.0"
+  },
+  "devDependencies": {
+    "@secjs/logger": "1.1.3",
+    "@types/debug": "4.1.7",
+    "@types/jest": "27.0.1",
+    "@types/supertest": "2.0.11",
+    "@typescript-eslint/eslint-plugin": "4.31.0",
+    "@typescript-eslint/parser": "4.31.0",
+    "eslint": "7.32.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-config-standard": "16.0.3",
+    "eslint-import-resolver-typescript": "2.4.0",
+    "eslint-plugin-import": "2.24.2",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-promise": "5.1.0",
+    "eslint-plugin-standard": "5.0.0",
+    "husky": "7.0.2",
+    "jest": "27.1.0",
+    "lint-staged": "11.1.2",
+    "prettier": "2.3.2",
+    "supertest": "6.1.6",
+    "ts-jest": "27.0.5",
+    "ts-loader": "9.2.3",
+    "ts-node": "10.0.0",
+    "tsconfig-paths": "3.9.0",
+    "typescript": "4.3.5"
   },
   "lint-staged": {
     "*.js": [
@@ -54,9 +59,19 @@
       "git add"
     ]
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "jest": {
     "modulePaths": [
       "<rootDir>"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "src",
+      "tests"
     ],
     "moduleFileExtensions": [
       "js",
@@ -68,13 +83,8 @@
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
     },
-    "coverageDirectory": "../coverage",
+    "coverageDirectory": "./coverage",
     "testEnvironment": "node"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   },
   "prettier": {
     "singleQuote": true,
@@ -99,31 +109,46 @@
     },
     "extends": [
       "standard",
+      "plugin:@typescript-eslint/recommended",
       "plugin:prettier/recommended"
     ],
     "globals": {
-      "use": true,
       "Atomics": "readonly",
       "SharedArrayBuffer": "readonly"
     },
+    "parser": "@typescript-eslint/parser",
     "parserOptions": {
-      "ecmaVersion": 2018
+      "ecmaVersion": 2018,
+      "sourceType": "module"
     },
     "plugins": [
+      "@typescript-eslint",
       "prettier"
     ],
     "rules": {
+      "dot-notation": "off",
+      "camelcase": "off",
+      "no-undef": "off",
+      "@typescript-eslint/no-var-requires": "off",
+      "no-useless-constructor": "off",
+      "@typescript-eslint/no-useless-constructor": "off",
+      "@typescript-eslint/camelcase": "off",
+      "@typescript-eslint/explicit-module-boundary-types": "off",
+      "@typescript-eslint/interface-name-prefix": "off",
+      "@typescript-eslint/no-explicit-any": "off",
       "prettier/prettier": "error",
-      "camelcase": "off"
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          "argsIgnorePattern": "_"
+        }
+      ]
     }
   },
   "files": [
     "SetEnv.js",
     "SetEnv.d.ts",
     "index.js",
-    "index.d.ts",
-    "LICENSE",
-    "package.json",
-    "README.md"
+    "index.d.ts"
   ]
 }
