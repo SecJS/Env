@@ -1,7 +1,7 @@
 import './SetEnv'
 import { Debug } from '@secjs/logger'
 
-interface IEnv {
+export interface IEnv {
   name: string
   type: string
 }
@@ -14,7 +14,10 @@ interface IEnv {
  * @throws Error if env type is not IEnv or string
  * @return The value of the environment or defaultValue
  */
-export default function Env(env: string | IEnv, defaultValue: string | number | boolean): string | number | boolean | any {
+export default function Env(
+  env: string | IEnv,
+  defaultValue: string | number | boolean,
+): string | number | boolean | any {
   const environment = process.env[`${typeof env === 'string' ? env : env.name}`]
 
   if (!environment) {
@@ -28,7 +31,10 @@ export default function Env(env: string | IEnv, defaultValue: string | number | 
     if (env.type === 'boolean') return environment == 'true'
     if (env.type === 'object') return JSON.parse(environment)
 
-    Debug(`Type ${env.type} not found, returning default value`, 'api:environment')
+    Debug(
+      `Type ${env.type} not found, returning default value`,
+      'api:environment',
+    )
 
     return defaultValue
   }

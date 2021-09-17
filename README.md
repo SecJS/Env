@@ -27,10 +27,17 @@ NODE_ENV. In this case `@secjs/env` will use .env.testing file.
 
 ## Installation
 
-You can install the Env function using;
+> To use the high potential from @secjs/base you need to install first this packages from SecJS,
+> it keeps as dev dependency because one day @secjs/core will install everything once.
 
 ```bash
-yarn add @secjs/env
+npm install @secjs/logger
+```
+
+> Than you can install @secjs/env;
+
+```bash
+npm install @secjs/env
 ```
 
 ## Usage
