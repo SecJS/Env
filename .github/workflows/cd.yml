@@ -3,7 +3,7 @@ name: CD Env
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
@@ -23,9 +23,6 @@ jobs:
 
       - name: Download dependencies
         run: npm install
-
-      - name: Run the tests inside project
-        run: npm run test
 
       - name: Transpile typescript to javascript
         run: npm run build

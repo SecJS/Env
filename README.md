@@ -68,3 +68,7 @@ console.log(dbPortCasted) // 5432
 const dbDebugCasted = Env({ name: 'DB_DEBUG', type: 'boolean' }, false)
 console.log(dbDebugCasted) // false
 ```
+
+---
+
+Made with 🖤 by [jlenon7](https://github.com/jlenon7) :wave:
