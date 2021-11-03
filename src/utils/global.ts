@@ -1,4 +1,4 @@
-import Env, { IEnv } from '../Env'
+import { Env, IEnv } from '../Env'
 
 export {}
 

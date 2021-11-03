@@ -15,7 +15,7 @@ export interface IEnv {
  * @throws Error if env type is not IEnv or string
  * @return The value of the environment or defaultValue
  */
-export default function Env(
+export function Env(
   env: string | IEnv,
   defaultValue: string | number | boolean,
 ): string | number | boolean | any {
