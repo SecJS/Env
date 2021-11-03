@@ -42,10 +42,18 @@ npm install @secjs/env
 
 ## Usage
 
-> You can call the Env function to get an env variable
+> You can use Env function as a global importing just one time the global file
 
-```js
-import Env from '@secjs/env'
+```ts
+import '@secjs/env/src/utils/global.ts'
+
+Env('DB_DATABASE', 'my-database')
+```
+
+> Or you can call directly the Env function
+
+```ts
+import { Env } from '@secjs/env'
 
 // Simulating .env file
 DB_PORT=5432
