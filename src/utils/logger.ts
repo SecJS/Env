@@ -9,6 +9,6 @@ export default new Logger(
   'Debug',
   new LogMapper(
     [new DebugFormatter()],
-    [new DebugTransporter('api:environment')],
+    [new DebugTransporter('api:environments')],
   ),
 )

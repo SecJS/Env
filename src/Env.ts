@@ -1,0 +1,42 @@
+import './DotEnvResolver'
+
+import logger from './utils/logger'
+
+export interface IEnv {
+  name: string
+  type: string
+}
+
+/**
+ * Get the value of an environment variable
+ *
+ * @param env The env name or object with env name and type
+ * @param defaultValue The default value of the env if env does not exist
+ * @throws Error if env type is not IEnv or string
+ * @return The value of the environment or defaultValue
+ */
+export default function Env(
+  env: string | IEnv,
+  defaultValue: string | number | boolean,
+): string | number | boolean | any {
+  const environment = process.env[`${typeof env === 'string' ? env : env.name}`]
+
+  if (!environment) {
+    logger.debug(`Variable ${env} not found`)
+
+    return defaultValue
+  }
+
+  if (typeof env === 'object') {
+    if (env.type === 'number') return parseInt(environment)
+    // eslint-disable-next-line eqeqeq
+    if (env.type === 'boolean') return environment == 'true'
+    if (env.type === 'object') return JSON.parse(environment)
+
+    logger.debug(`Type ${env.type} not found, returning default value`)
+
+    return defaultValue
+  }
+
+  return environment
+}
