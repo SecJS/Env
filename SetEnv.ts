@@ -1,7 +1,7 @@
 import * as path from 'path'
 import * as dotenv from 'dotenv'
 
-import { Debug } from '@secjs/logger'
+import logger from './logger'
 
 class SetEnv {
   constructor() {
@@ -11,16 +11,13 @@ class SetEnv {
     if (environment) {
       configurations.path = path.resolve(process.cwd(), `.env.${environment}`)
 
-      Debug(
-        `Environment variables set using .env.${environment}`,
-        'api:environment',
-      )
+      logger.debug(`Environment variables set using .env.${environment}`)
     }
 
     const result = dotenv.config(configurations)
 
     if (result.error) {
-      Debug('Any environment variable file found!', 'api:environment')
+      logger.debug('Any environment variable file found!')
     }
   }
 }

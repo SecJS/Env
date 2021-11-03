@@ -1,5 +1,5 @@
 import './SetEnv'
-import { Debug } from '@secjs/logger'
+import logger from './logger'
 
 export interface IEnv {
   name: string
@@ -21,7 +21,7 @@ export default function Env(
   const environment = process.env[`${typeof env === 'string' ? env : env.name}`]
 
   if (!environment) {
-    Debug(`Variable ${env} not found`, 'api:environment')
+    logger.debug(`Variable ${env} not found`)
 
     return defaultValue
   }
@@ -31,10 +31,7 @@ export default function Env(
     if (env.type === 'boolean') return environment == 'true'
     if (env.type === 'object') return JSON.parse(environment)
 
-    Debug(
-      `Type ${env.type} not found, returning default value`,
-      'api:environment',
-    )
+    logger.debug(`Type ${env.type} not found, returning default value`)
 
     return defaultValue
   }
