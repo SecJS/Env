@@ -3,11 +3,15 @@
 > Very simple Env get function for NodeJS
 
 <p>
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/secjs/responses?style=for-the-badge&logo=appveyor">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/secjs/env?style=for-the-badge&logo=appveyor">
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/secjs/Env?style=for-the-badge&logo=appveyor">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/secjs/env?style=for-the-badge&logo=appveyor">
 
   <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen?style=for-the-badge&logo=appveyor">
+</p>
+
+<p>
+    <a href="https://www.buymeacoffee.com/secjs" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
 </p>
 
 The intention behind this repository is to always maintain a viable and simple Env function to use in any type of `NodeJS Framework`. 
@@ -78,5 +82,7 @@ console.log(dbDebugCasted) // false
 ```
 
 ---
+
+## License
 
 Made with 🖤 by [jlenon7](https://github.com/jlenon7) :wave:
