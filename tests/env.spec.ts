@@ -5,6 +5,7 @@ describe('\n Env 🔁', () => {
   let DB_PASSWORD = ''
 
   beforeAll(() => {
+    process.env.HOST = '127.0.0.1'
     process.env.PORT = '3333'
     process.env.DB_DEBUG = 'false'
     process.env.DB_USERNAME = 'user'
@@ -29,6 +30,13 @@ describe('\n Env 🔁', () => {
 
     expect(DB_HOST).toBe(hostDefaultValue)
     expect(DB_PORT).toBe(portDefaultValue)
+  })
+
+  it('should replace template strings on environment values', () => {
+    // eslint-disable-next-line no-template-curly-in-string
+    process.env.APP_URL = 'http://${HOST}:${PORT}'
+
+    expect(Env('APP_URL', '')).toBe('http://127.0.0.1:3333')
   })
 
   it('should get an environment variable type using a object with env name and type to Env function', () => {
