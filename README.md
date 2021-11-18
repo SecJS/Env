@@ -3,7 +3,7 @@
 > Very simple Env get function for NodeJS
 
 [![GitHub followers](https://img.shields.io/github/followers/jlenon7.svg?style=social&label=Follow&maxAge=2592000)](https://github.com/jlenon7?tab=followers)
-[![GitHub stars](https://img.shields.io/github/stars/secjs/config.svg?style=social&label=Star&maxAge=2592000)](https://github.com/secjs/env/stargazers/)
+[![GitHub stars](https://img.shields.io/github/stars/secjs/env.svg?style=social&label=Star&maxAge=2592000)](https://github.com/secjs/env/stargazers/)
 
 <p>
     <a href="https://www.buymeacoffee.com/secjs" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
@@ -65,13 +65,20 @@ Env('DB_DATABASE', 'my-database')
 import { Env } from '@secjs/env'
 
 // Simulating .env file
+HOST='127.0.0.1'
+PORT=3333
 DB_PORT=5432
 DB_DEBUG=false
 DB_DATABASE='database'
+APP_URL='http://${HOST}:${PORT}'
 
 // The response value will be the value of DB_DATABASE variable or my-database by default
 const db = Env('DB_DATABASE', 'my-database')
 console.log(db) // 'database'
+
+// Template string support
+const appUrl = Env('APP_URL', 'http://localhost:3000')
+console.log(appUrl) // 'http://127.0.0.1:3333'
 
 const dbPort = Env('DB_PORT', '5432')
 console.log(dbPort) // '5432'

@@ -19,7 +19,7 @@ export function Env(
   env: string | IEnv,
   defaultValue: string | number | boolean,
 ): string | number | boolean | any {
-  const environment = process.env[`${typeof env === 'string' ? env : env.name}`]
+  let environment = process.env[`${typeof env === 'string' ? env : env.name}`]
 
   if (!environment) {
     logger.debug(`Variable ${env} not found`)
@@ -36,6 +36,21 @@ export function Env(
     logger.debug(`Type ${env.type} not found, returning default value`)
 
     return defaultValue
+  }
+
+  const matches = environment.match(/\${([^}]+)}/g)
+
+  if (matches) {
+    for (let match of matches) {
+      const key = match.replace(/[!${}]+/g, '')
+
+      match = match.replace('$', '\\$')
+
+      environment = environment.replace(
+        new RegExp(match, 'g'),
+        process.env[key] || null,
+      )
+    }
   }
 
   return environment
