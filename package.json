@@ -1,6 +1,6 @@
 {
   "name": "@secjs/env",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "license": "MIT",
   "author": "João Lenon",
   "repository": "https://github.com/SecJS/Env.git",
@@ -23,7 +23,9 @@
     "dotenv": "10.0.0"
   },
   "devDependencies": {
+    "@secjs/exceptions": "^1.0.4",
     "@secjs/logger": "1.2.1",
+    "@secjs/utils": "^1.5.2",
     "@types/debug": "4.1.7",
     "@types/jest": "27.0.1",
     "@types/supertest": "2.0.11",
@@ -49,7 +51,8 @@
     "ts-loader": "9.2.3",
     "ts-node": "10.0.0",
     "tsconfig-paths": "3.9.0",
-    "typescript": "4.3.5"
+    "typescript": "4.3.5",
+    "uuid": "^8.3.2"
   },
   "lint-staged": {
     "*.js": [

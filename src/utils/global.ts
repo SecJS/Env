@@ -1,4 +1,7 @@
 import { Env, IEnv } from '../Env'
+import { resolveEnvFile } from './resolveEnvFile'
+
+resolveEnvFile()
 
 export {}
 
