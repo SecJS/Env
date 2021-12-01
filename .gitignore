@@ -118,7 +118,7 @@ out
 
 # dotenv environment variables file
 .env
-.env.testing
+#.env.testing
 .env.production
 
 # Build files
