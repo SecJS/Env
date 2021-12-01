@@ -1,4 +1,5 @@
 import { Env } from '../src/Env'
+import { resolveEnvFile } from '../src/utils/resolveEnvFile'
 
 describe('\n Env 🔁', () => {
   let DB_USERNAME = ''
@@ -11,6 +12,7 @@ describe('\n Env 🔁', () => {
     process.env.DB_USERNAME = 'user'
     process.env.DB_PASSWORD = 'pass'
     process.env.OBJECT = '{"joao":"joao"}'
+    process.env.DB_SYNC = 'true'
 
     DB_USERNAME = process.env.DB_USERNAME
     DB_PASSWORD = process.env.DB_PASSWORD
@@ -47,5 +49,15 @@ describe('\n Env 🔁', () => {
     expect(PORT).toBe(3333)
     expect(DB_DEBUG).toBe(false)
     expect(OBJECT.joao).toBe('joao')
+  })
+
+  it('should resolve the .env.testing file and subscribe all envs from process.env that are in this file', () => {
+    process.env.NODE_ENV = 'testing'
+
+    resolveEnvFile()
+
+    const DB_SYNC = Env('DB_SYNC', '')
+
+    expect(DB_SYNC).toBe('false')
   })
 })

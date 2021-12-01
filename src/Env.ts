@@ -1,5 +1,3 @@
-import './DotEnvResolver'
-
 import logger from './utils/logger'
 
 export interface IEnv {
