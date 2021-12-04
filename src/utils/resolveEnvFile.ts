@@ -1,6 +1,6 @@
 import * as dotenv from 'dotenv'
 
-import logger from './logger'
+import { debugFn } from './debug'
 import { Path } from '@secjs/utils'
 
 export function resolveEnvFile() {
@@ -10,13 +10,13 @@ export function resolveEnvFile() {
   if (environment) {
     configurations.path = Path.noBuild().pwd(`.env.${environment}`)
 
-    logger.debug(`Environment variables set using .env.${environment} file`)
+    debugFn(`Environment variables set using .env.${environment} file`)
   }
 
   const result = dotenv.config(configurations)
 
   if (result.error) {
-    logger.debug('Any environment variable file found!')
+    debugFn('Any environment variable file found!')
 
     return
   }

@@ -1,4 +1,4 @@
-import logger from './utils/logger'
+import { debugFn } from './utils/debug'
 
 export interface IEnv {
   name: string
@@ -20,7 +20,7 @@ export function Env(
   let environment = process.env[`${typeof env === 'string' ? env : env.name}`]
 
   if (!environment) {
-    logger.debug(`Variable ${env} not found`)
+    debugFn(`Variable ${env} not found`)
 
     return defaultValue
   }
@@ -31,7 +31,7 @@ export function Env(
     if (env.type === 'boolean') return environment == 'true'
     if (env.type === 'object') return JSON.parse(environment)
 
-    logger.debug(`Type ${env.type} not found, returning default value`)
+    debugFn(`Type ${env.type} not found, returning default value`)
 
     return defaultValue
   }
