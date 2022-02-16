@@ -23,15 +23,6 @@ The intention behind this repository is to always maintain a viable and simple E
 `@secjs/env` uses `dotenv` library to find .env file in the project root, you can run your application with environment `NODE_ENV` set
 and `@secjs/env` will try to find the `.env.${NODE_ENV}`.
 
-> Example
-
-```bash
-NODE_ENV=testing node index.js
-```
-
-If index.js file is using Env function the singleton of environment will run and find verify is exists
-NODE_ENV. In this case `@secjs/env` will use .env.testing file.
-
 <img src=".github/env.png" width="200px" align="right" hspace="30px" vspace="100px">
 
 ## Installation
@@ -40,9 +31,18 @@ NODE_ENV. In this case `@secjs/env` will use .env.testing file.
 npm install @secjs/env
 ```
 
+## Example
+
+```bash
+NODE_ENV=testing node index.js
+```
+
+If index.js file is using Env function the singleton of Env will run and verify if exists
+NODE_ENV. In this case Env will use .env.testing file.
+
 ## Usage
 
-> You can use Env function as a global importing just one time the global file
+> You can use Env function as a global importing just one time the global file. Global already call resolveEnvFile function.
 
 ```ts
 import '@secjs/env/src/utils/global.ts'
@@ -50,10 +50,10 @@ import '@secjs/env/src/utils/global.ts'
 Env('DB_DATABASE', 'my-database')
 ```
 
-> Or you can call directly the Env function
+> Or you can call directly the Env function, but first you will need to call resolveEnvFile to get the env file by NODE_ENV.
 
 ```ts
-import { Env } from '@secjs/env'
+import { Env, resolveEnvFile } from '@secjs/env'
 
 // Simulating .env file
 HOST='127.0.0.1'
@@ -62,6 +62,9 @@ DB_PORT=5432
 DB_DEBUG=false
 DB_DATABASE='database'
 APP_URL='http://${HOST}:${PORT}'
+
+// Important to resolve env file
+resolveEnvFile()
 
 // The response value will be the value of DB_DATABASE variable or my-database by default
 const db = Env('DB_DATABASE', 'my-database')
