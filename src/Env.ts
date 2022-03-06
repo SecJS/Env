@@ -1,4 +1,4 @@
-import { debugFn } from './utils/debug'
+import { Debug } from '@secjs/utils'
 
 export interface IEnv {
   name: string
@@ -17,10 +17,11 @@ export function Env(
   env: string | IEnv,
   defaultValue: string | number | boolean,
 ): string | number | boolean | any {
+  const debug = new Debug('Env', 'api:environments')
   let environment = process.env[`${typeof env === 'string' ? env : env.name}`]
 
   if (!environment) {
-    debugFn(`Variable ${env} not found`)
+    debug.log(`Variable ${env} not found`)
 
     return defaultValue
   }
@@ -31,7 +32,7 @@ export function Env(
     if (env.type === 'boolean') return environment == 'true'
     if (env.type === 'object') return JSON.parse(environment)
 
-    debugFn(`Type ${env.type} not found, returning default value`)
+    debug.log(`Type ${env.type} not found, returning default value`)
 
     return defaultValue
   }
